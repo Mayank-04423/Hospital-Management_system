@@ -93,3 +93,8 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #2ecc71;
 }
+
+tbody tr:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
