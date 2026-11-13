@@ -9,6 +9,14 @@ const storage = require('../lib/storage');
 router.get('/', (req, res) => {
   const data = storage.readData();
   res.json(data.doctors);
+
+   // Feature : Search by specialty
+  if (req.query.specialty) {
+    doctors = doctors.filter(d => 
+      d.specialty.toLowerCase().includes(req.query.specialty.toLowerCase())
+    );
+  }
+  res.json(doctors);
 });
 
 // @route   POST /api/doctors
