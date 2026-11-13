@@ -16,11 +16,16 @@ router.get('/', (req, res) => {
 // @desc    Register a new patient
 router.post('/', (req, res) => {
   const data = storage.readData();
+
+    if (!req.body.name || !req.body.age) {
+    return res.status(400).json({ error: "Name and age are required" });
+  }
+
   const newPatient = {
     id: Date.now(),
     name: req.body.name,
     age: req.body.age,
-    contact: req.body.contact
+    contact: req.body.contact || "N/A"
   };
 
   data.patients.push(newPatient);
