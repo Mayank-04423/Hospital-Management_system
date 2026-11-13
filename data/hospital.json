@@ -1,10 +1,29 @@
 {
   "doctors": [
-    { "id": 1, "name": "Dr. Alice Smith", "specialty": "Cardiology" },
-    { "id": 2, "name": "Dr. Bob Jones", "specialty": "Pediatrics" }
+    {
+      "id": 1,
+      "name": "Dr. Alice Smith",
+      "specialty": "Cardiology"
+    },
+    {
+      "id": 2,
+      "name": "Dr. Bob Jones",
+      "specialty": "Pediatrics"
+    }
   ],
   "patients": [
-    { "id": 1, "name": "John Doe", "age": 30, "contact": "555-0101" }
+    {
+      "id": 1,
+      "name": "John Doe",
+      "age": 30,
+      "contact": "555-0101"
+    },
+    {
+      "id": 1794601670664,
+      "name": "mayank",
+      "age": "22",
+      "contact": "1234567890"
+    }
   ],
   "appointments": []
 }

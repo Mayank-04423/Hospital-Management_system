@@ -19,11 +19,9 @@ function loadView(viewName) {
 // STUDENT 1: DOCTORS UI
 // ==========================================
 async function renderDoctorsView() {
-    // 1. Fetch doctors from API
     const res = await fetch('/api/doctors');
     const doctors = await res.json();
 
-    // 2. Build HTML
     let html = `
         <h2>Manage Doctors</h2>
         <form id="doctorForm">
@@ -43,7 +41,6 @@ async function renderDoctorsView() {
     html += `</tbody></table>`;
     container.innerHTML = html;
 
-    // 3. Handle form submission
     document.getElementById('doctorForm').addEventListener('submit', async (e) => {
         e.preventDefault();
         const name = document.getElementById('docName').value;
@@ -55,7 +52,7 @@ async function renderDoctorsView() {
             body: JSON.stringify({ name, specialty })
         });
 
-        renderDoctorsView(); // Refresh view
+        renderDoctorsView(); 
     });
 }
 
@@ -103,21 +100,62 @@ async function renderPatientsView() {
 }
 
 // ==========================================
-// STUDENT 2: APPOINTMENTS UI (TODO)
+// STUDENT 2: APPOINTMENTS UI
 // ==========================================
-function renderAppointmentsView() {
-container.innerHTML = `
-<h2>Appointments</h2>
-<p><em>Feature pending implementation by Student 2</em></p>
-`;
+async function renderAppointmentsView() {
+    const res = await fetch('/api/appointments');
+    const appointments = await res.json();
+
+    let html = `
+        <h2>Book Appointment</h2>
+        <form id="apptForm">
+            <input type="text" id="apptPatient" placeholder="Patient Name" required>
+            <input type="text" id="apptDoctor" placeholder="Doctor Name" required>
+            <input type="date" id="apptDate" required>
+            <button type="submit">Book</button>
+        </form>
+        <h2>All Appointments</h2>
+        <table>
+            <thead><tr><th>ID</th><th>Patient</th><th>Doctor</th><th>Date</th></tr></thead>
+            <tbody>
+    `;
+
+    appointments.forEach(appt => {
+        html += `<tr><td>${appt.id}</td><td>${appt.patientName}</td><td>${appt.doctorName}</td><td>${appt.date}</td></tr>`;
+    });
+
+    html += `</tbody></table>`;
+    container.innerHTML = html;
+
+    document.getElementById('apptForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const patientName = document.getElementById('apptPatient').value;
+        const doctorName = document.getElementById('apptDoctor').value;
+        const date = document.getElementById('apptDate').value;
+
+        await fetch('/api/appointments', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ patientName, doctorName, date })
+        });
+
+        renderAppointmentsView();
+    });
 }
 
 // ==========================================
-// STUDENT 2: REPORTS UI (TODO)
+// STUDENT 2: REPORTS UI
 // ==========================================
-function renderReportsView() {
-container.innerHTML = `
-<h2>Hospital Reports</h2>
-<p><em>Feature pending implementation by Student 2</em></p>
-`;
+async function renderReportsView() {
+    const res = await fetch('/api/appointments/reports');
+    const report = await res.json();
+
+    let html = `
+        <h2>Hospital Reports</h2>
+        <div style="padding: 20px; background: #e8f8f5; border-radius: 8px;">
+            <h3>Total Appointments Booked: ${report.totalAppointments}</h3>
+            <p>System Status: ${report.status}</p>
+        </div>
+    `;
+    container.innerHTML = html;
 }
