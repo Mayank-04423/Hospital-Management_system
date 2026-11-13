@@ -27,5 +27,13 @@ router.post('/', (req, res) => {
   res.status(201).json(newDoctor);
 });
 
+// FEATURE 5: DOCTOR AVAILABILITY
 
+// @route GET /api/doctors/:id/availability
+// @desc Get availability schedule for a doctor
+router.get('/:id/availability', (req, res) => {
+// TODO (Student 2): Implement logic to return schedule
+// Example: res.json({ doctorId: req.params.id, schedule: "Mon-Fri 9AM-5PM" });
+res.status(501).json({ message: "Not implemented yet by Student 2" });
+});
 module.exports = router;
