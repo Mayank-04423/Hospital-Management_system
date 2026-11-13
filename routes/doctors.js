@@ -28,6 +28,7 @@ router.post('/', (req, res) => {
 });
 
 // FEATURE 5: DOCTOR AVAILABILITY
+// Retrieves doctor's availability schedule by ID
 
 // @route GET /api/doctors/:id/availability
 // @desc Get availability schedule for a doctor
