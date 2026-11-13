@@ -101,3 +101,23 @@ async function renderPatientsView() {
         renderPatientsView();
     });
 }
+
+// ==========================================
+// STUDENT 2: APPOINTMENTS UI (TODO)
+// ==========================================
+function renderAppointmentsView() {
+container.innerHTML = `
+<h2>Appointments</h2>
+<p><em>Feature pending implementation by Student 2</em></p>
+`;
+}
+
+// ==========================================
+// STUDENT 2: REPORTS UI (TODO)
+// ==========================================
+function renderReportsView() {
+container.innerHTML = `
+<h2>Hospital Reports</h2>
+<p><em>Feature pending implementation by Student 2</em></p>
+`;
+}
