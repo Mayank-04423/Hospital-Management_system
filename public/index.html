@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Appointment System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🏥 City Hospital Management</h1>
+        <nav>
+            <button onclick="loadView('doctors')">Doctors</button>
+            <button onclick="loadView('patients')">Patients</button>
+            <button onclick="loadView('appointments')">Appointments</button>
+            <button onclick="loadView('reports')">Reports</button>
+        </nav>
+    </header>
+
+    <main id="app-container">
+        <!-- Dynamic content will be injected here by app.js -->
+        <h2>Welcome</h2>
+        <p>Select a tab above to manage hospital data.</p>
+    </main>
+
+    <!-- Load the frontend logic -->
+    <script src="app.js"></script>
+</body>
+</html>

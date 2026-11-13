@@ -1,0 +1,10 @@
+{
+  "doctors": [
+    { "id": 1, "name": "Dr. Alice Smith", "specialty": "Cardiology" },
+    { "id": 2, "name": "Dr. Bob Jones", "specialty": "Pediatrics" }
+  ],
+  "patients": [
+    { "id": 1, "name": "John Doe", "age": 30, "contact": "555-0101" }
+  ],
+  "appointments": []
+}
